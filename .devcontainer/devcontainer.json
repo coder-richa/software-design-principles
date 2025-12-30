@@ -1,0 +1,31 @@
+{
+  "name": "Python Project",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "software-design-principles",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // Use Black for formatting
+        "python.formatting.provider": "none",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        },
+        // Enable Linters to show squiggles
+        "flake8.enabled": true,
+        "pylint.enabled": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.pylint"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install pre-commit && pre-commit install"
+}

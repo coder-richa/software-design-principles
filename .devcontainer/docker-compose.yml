@@ -1,0 +1,13 @@
+services:
+  software-design-principles:
+    build:
+      # This tells Docker to look at the project root (one level up)
+      context: .. 
+      # This tells Docker exactly where the Dockerfile is located
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      # Sync the project root on your computer to /app in the container
+      - ..:/app
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
